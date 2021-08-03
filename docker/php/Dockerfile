@@ -1,4 +1,5 @@
-FROM php:8.0-fpm
+#FROM php:8.0-fpm
+FROM php:8.0-fpm-buster
 
 RUN apt-get update && apt-get install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip libpq-dev librabbitmq-dev \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
@@ -18,12 +19,11 @@ RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
 RUN echo "extension=mongodb.so" >> /etc/php.ini
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini
-RUN echo "extension=amqp.so" >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini
 
 ## MEMORY
 RUN cd /usr/local/etc/php/conf.d/ && \
   echo 'memory_limit = -1' >> /usr/local/etc/php/conf.d/docker-php-ram-limit.ini
 
 RUN apt-get install -y nodejs npm build-essential
-RUN npm install yarn
+CMD npm install @symfony/webpack-encore --save-dev
 

@@ -31,10 +31,13 @@
 ## RUN DOCKER
     $ docker-compose up -d --build
     $ docker exec -it <containerName> bash
-    $ docker exec -it php8-container bash
+    $ docker exec -it php8-hrb bash
 
     ## command outside of bash 
     $ docker-compose run --rm php8-service php bin/console doctrine:database:create
+
+    ## RUN COMPOSER INSTALL 
+    $ docker-compose run --rm php8-hrb composer install
 
 ## PHP ALLOCATED MEMORY
     // check memory

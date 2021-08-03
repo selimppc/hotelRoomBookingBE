@@ -6,7 +6,7 @@ networks:
 
 services:
   #nginx
-  nginx-service:
+  nginx-service-hrb:
     image: nginx:stable-alpine
     container_name: nginx-hrb
     ports:
@@ -15,26 +15,26 @@ services:
       - .:/var/www/project
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
-      - php8-service
-      - postgres13-service
+      - php8-service-hrb
+      - postgres13-service-hrb
     networks:
       - nginx-php8-postgres13-node
 
   #php8
-  php8-service:
+  php8-service-hrb:
     build:
       context: .
       dockerfile: ./docker/php/Dockerfile
     container_name: php8-hrb
     ports:
-      - "9001:9000"
+      - "9000:9000"
     volumes:
       - .:/var/www/project
     networks:
       - nginx-php8-postgres13-node
 
   #postgres13
-  postgres13-service:
+  postgres13-service-hrb:
     image: postgres:latest
     container_name: postgres13-hrb
     ports:
@@ -50,10 +50,12 @@ services:
       - nginx-php8-postgres13-node
 
   #node
-  node-service:
+  node-service-hrb:
     image: node:latest
     container_name: node-hrb
     working_dir: /var/www/project
+    depends_on:
+      - php8-service-hrb
     volumes:
       - .:/var/www/project
     command: ["yarn", "install"]
