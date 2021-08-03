@@ -1,26 +1,26 @@
 # hotelRoomBookingBE
 
-## Step 1: Build and Run docker
+### Step 1: Build and Run docker
 
     $ docker-compose up -d --build
 
-## Step 2: Install Composer
+### Step 2: Install Composer
 
     $ docker-compose run --rm php8-service-hrb composer install
 
-## Step 3: Encore Assets
+### Step 3: Encore Assets
 
     $ docker-compose run --rm node-service-hrb npm run dev
 
-## Step 4: Database Migration
+### Step 4: Database Migration
 
     $ docker-compose run --rm php8-service-hrb php bin/console doctrine:migrations:migrate
 
-## Step 5: Load Fixtures    
+### Step 5: Load Fixtures    
 
     $ docker-compose run --rm php8-service-hrb php bin/console doctrine:fixtures:load
 
-## Step 6: Run Unit Tests
+### Step 6: Run Unit Tests
 
     $ docker-compose run --rm php8-service-hrb ./vendor/bin/simple-phpunit tests/
 
