@@ -34,10 +34,14 @@
     $ docker exec -it php8-hrb bash
 
     ## command outside of bash 
-    $ docker-compose run --rm php8-service php bin/console doctrine:database:create
+    $ docker-compose run --rm php8-service-hrb php bin/console doctrine:database:create
 
     ## RUN COMPOSER INSTALL 
-    $ docker-compose run --rm php8-hrb composer install
+    $ docker-compose run --rm php8-service-hrb composer install
+
+    ## RUN ENCORE
+    $ docker-compose run --rm node-service-hrb npm install @symfony/webpack-encore --save-dev
+    $ docker-compose run --rm node-service-hrb npm run dev
 
 ## PHP ALLOCATED MEMORY
     // check memory

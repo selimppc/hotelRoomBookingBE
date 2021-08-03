@@ -25,5 +25,4 @@ RUN cd /usr/local/etc/php/conf.d/ && \
   echo 'memory_limit = -1' >> /usr/local/etc/php/conf.d/docker-php-ram-limit.ini
 
 RUN apt-get install -y nodejs npm build-essential
-CMD npm install @symfony/webpack-encore --save-dev
 
