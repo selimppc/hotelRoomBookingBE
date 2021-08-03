@@ -1,37 +1,37 @@
 # hotelRoomBookingBE
 
-## Assets Encore
-    $ yarn encore dev
-    $ yarn encore dev --watch
-    $ yarn encore production
+## Step 1: Build and Run docker
 
-## Database Validation
-    $ php bin/console doctrine:schema:validate
+    $ docker-compose up -d --build
 
-## Metadata
-    $ php bin/console doctrine:cache:clear-metadata
+## Step 2: Install Composer
 
-## Migration File
-    $ php bin/console doctrine:migrations:diff
+    $ docker-compose run --rm php8-service-hrb composer install
 
-## Migrate database
-    $ php bin/console doctrine:migrations:execute "verion"
-    $ php bin/console doctrine:migrations:migrate
+## Step 3: Encore Assets
 
-## Fixture Load
-    $ php bin/console doctrine:fixtures:load
+    $ docker-compose run --rm node-service-hrb npm run dev
 
-## Usage
-    $ composer install
-    $ symfony serve
+## Step 4: Database Migration
 
-## RUN PHP UNIT TEST
-    $ ./vendor/bin/simple-phpunit tests/
+    $ docker-compose run --rm php8-service-hrb php bin/console doctrine:migrations:migrate
 
-## RUN DOCKER
+## Step 5: Load Fixtures    
+
+    $ docker-compose run --rm php8-service-hrb php bin/console doctrine:fixtures:load
+
+## Step 6: Run Unit Tests
+
+    $ docker-compose run --rm php8-service-hrb ./vendor/bin/simple-phpunit tests/
+
+# Live 
+    
+    App: http://localhost:8081
+
+
+## DOCKER Guide
     $ docker-compose up -d --build
     $ docker exec -it <containerName> bash
-    $ docker exec -it php8-hrb bash
 
     ## command outside of bash 
     $ docker-compose run --rm php8-service-hrb php bin/console doctrine:database:create
@@ -39,9 +39,6 @@
     ## RUN COMPOSER INSTALL 
     $ docker-compose run --rm php8-service-hrb composer install
 
-    ## RUN ENCORE
-    $ docker-compose run --rm node-service-hrb npm install @symfony/webpack-encore --save-dev
-    $ docker-compose run --rm node-service-hrb npm run dev
 
 ## PHP ALLOCATED MEMORY
     // check memory
