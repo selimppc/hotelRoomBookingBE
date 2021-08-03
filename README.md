@@ -29,7 +29,7 @@
     App: http://localhost:8081
 
 
-## DOCKER Guide
+### DOCKER Guide
     $ docker-compose up -d --build
     $ docker exec -it <containerName> bash
 
@@ -40,7 +40,7 @@
     $ docker-compose run --rm php8-service-hrb composer install
 
 
-## PHP ALLOCATED MEMORY
+### PHP ALLOCATED MEMORY
     // check memory
     $ php -r "echo ini_get('memory_limit').PHP_EOL;"
     
