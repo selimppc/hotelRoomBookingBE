@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Hotel;
 use App\Entity\Room;
+use App\Entity\RoomType as RoomTp;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,8 +19,14 @@ class RoomType extends AbstractType
             ->add('name')
             ->add('status')
             ->add('is_smoke')
-            ->add('hotel')
-            ->add('room_type')
+            ->add('hotel', EntityType::class, [
+                'class' => Hotel::class,
+                'choice_label' => 'name',
+            ])
+            ->add('room_type', EntityType::class, [
+                'class' => RoomTp::class,
+                'choice_label' => 'description',
+            ])
         ;
     }
 
