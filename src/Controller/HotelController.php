@@ -68,15 +68,4 @@ class HotelController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'hotel_delete', methods: ['POST'])]
-    public function delete(Request $request, Hotel $hotel): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$hotel->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($hotel);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('hotel_index', [], Response::HTTP_SEE_OTHER);
-    }
 }

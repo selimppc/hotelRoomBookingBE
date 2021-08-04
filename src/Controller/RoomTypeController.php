@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/room/type')]
+#[Route('/room-type')]
 class RoomTypeController extends AbstractController
 {
     #[Route('/', name: 'room_type_index', methods: ['GET'])]
@@ -68,15 +68,4 @@ class RoomTypeController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'room_type_delete', methods: ['POST'])]
-    public function delete(Request $request, RoomType $roomType): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$roomType->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($roomType);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('room_type_index', [], Response::HTTP_SEE_OTHER);
-    }
 }

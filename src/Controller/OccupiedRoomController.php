@@ -68,15 +68,4 @@ class OccupiedRoomController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'occupied_room_delete', methods: ['POST'])]
-    public function delete(Request $request, OccupiedRoom $occupiedRoom): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$occupiedRoom->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($occupiedRoom);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('occupied_room_index', [], Response::HTTP_SEE_OTHER);
-    }
 }
