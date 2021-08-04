@@ -1,15 +1,18 @@
 ### Task 1. Code review
-    Please review the provided code https://github.com/emokykla/review-task Comment on what would you improve? Argue your suggestions.
+    Please review the provided code https://github.com/emokykla/review-task Comment on what would you improve? 
+    Argue your suggestions.
 
 ### Task 2. Development skills
 
     We are creating a hypothetical hotel room booking system. Hotel is unique as it has only one room.
-    Since the hotel is very small it has no supervision and all bookings are made online. Clients only use self service.
-    Two thousand clients are competing to book this room simultaneously at all times. Wow, what a popular room :D
+    Since the hotel is very small it has no supervision and all bookings are made online. 
+    Clients only use self service.Two thousand clients are competing to book this room simultaneously 
+    at all times. Wow, what a popular room :D
 
     ## Please create an application that would allow clients to book a hotel room:
     ● Clients should be able to see a calendar with vacant/booked date ranges.
-    ● Client should be able to book a room by specifying the desired date range and his personal details like firstname, lastname and email.
+    ● Client should be able to book a room by specifying the desired date range and his 
+        personal details like firstname, lastname and email.
 
 ### Requirements
 
