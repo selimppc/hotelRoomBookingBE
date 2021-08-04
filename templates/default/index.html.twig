@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome to Hotel Booking System {% endblock %}
+
+{% block body %}
+
+    <h1>Hotel Booking System</h1>
+
+    <p>
+        <a href="{{ path('hotel_index') }}"> Hotel </a>
+    </p>
+    <p>
+        <a href="{{ path('room_type_index') }}"> Room Type </a>
+    </p>
+    <p>
+        <a href="{{ path('room_index') }}"> Room </a>
+    </p>
+    <p>
+        <a href="{{ path('reservation_index') }}"> Reservation </a>
+    </p>
+    <p>
+        <a href="{{ path('reserved_room_index') }}"> Reserved Room </a>
+    </p>
+    <p>
+        <a href="{{ path('occupied_room_index') }}"> Occupied Room </a>
+    </p>
+    <p>
+        <a href="{{ path('user_index') }}"> User Management </a>
+    </p>
+
+
+{% endblock %}
