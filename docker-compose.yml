@@ -61,3 +61,11 @@ services:
     command: ["yarn", "install"]
     networks:
       - nginx-php8-postgres13-node
+
+  #rabbitMQ
+  rabbitmq-hrb:
+    image: rabbitmq:3-management
+    container_name: rabbitmq-hrb
+    ports: [ "5672", "15672" ]
+    networks:
+      - nginx-php8-postgres13-node
