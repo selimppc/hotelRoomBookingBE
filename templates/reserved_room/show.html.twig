@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ReservedRoom{% endblock %}
+
+{% block body %}
+    <h1>ReservedRoom</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reserved_room.id }}</td>
+            </tr>
+            <tr>
+                <th>Number_of_rooms</th>
+                <td>{{ reserved_room.numberOfRooms }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ reserved_room.status ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('reserved_room_index') }}">back to list</a>
+
+    <a href="{{ path('reserved_room_edit', {'id': reserved_room.id}) }}">edit</a>
+
+    {{ include('reserved_room/_delete_form.html.twig') }}
+{% endblock %}

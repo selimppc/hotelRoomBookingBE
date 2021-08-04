@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ReservedRoom index{% endblock %}
+
+{% block body %}
+    <h1>ReservedRoom index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Number_of_rooms</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reserved_room in reserved_rooms %}
+            <tr>
+                <td>{{ reserved_room.id }}</td>
+                <td>{{ reserved_room.numberOfRooms }}</td>
+                <td>{{ reserved_room.status ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('reserved_room_show', {'id': reserved_room.id}) }}">show</a>
+                    <a href="{{ path('reserved_room_edit', {'id': reserved_room.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('reserved_room_new') }}">Create new</a>
+{% endblock %}

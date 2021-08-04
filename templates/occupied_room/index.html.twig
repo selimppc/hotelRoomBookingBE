@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OccupiedRoom index{% endblock %}
+
+{% block body %}
+    <h1>OccupiedRoom index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Check_in</th>
+                <th>Check_out</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for occupied_room in occupied_rooms %}
+            <tr>
+                <td>{{ occupied_room.id }}</td>
+                <td>{{ occupied_room.checkIn ? occupied_room.checkIn|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ occupied_room.checkOut ? occupied_room.checkOut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('occupied_room_show', {'id': occupied_room.id}) }}">show</a>
+                    <a href="{{ path('occupied_room_edit', {'id': occupied_room.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('occupied_room_new') }}">Create new</a>
+{% endblock %}

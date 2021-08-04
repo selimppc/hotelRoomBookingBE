@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OccupiedRoom{% endblock %}
+
+{% block body %}
+    <h1>OccupiedRoom</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ occupied_room.id }}</td>
+            </tr>
+            <tr>
+                <th>Check_in</th>
+                <td>{{ occupied_room.checkIn ? occupied_room.checkIn|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Check_out</th>
+                <td>{{ occupied_room.checkOut ? occupied_room.checkOut|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('occupied_room_index') }}">back to list</a>
+
+    <a href="{{ path('occupied_room_edit', {'id': occupied_room.id}) }}">edit</a>
+
+    {{ include('occupied_room/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ReservedRoom{% endblock %}
+
+{% block body %}
+    <h1>Edit ReservedRoom</h1>
+
+    {{ include('reserved_room/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('reserved_room_index') }}">back to list</a>
+
+    {{ include('reserved_room/_delete_form.html.twig') }}
+{% endblock %}

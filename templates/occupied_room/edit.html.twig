@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit OccupiedRoom{% endblock %}
+
+{% block body %}
+    <h1>Edit OccupiedRoom</h1>
+
+    {{ include('occupied_room/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('occupied_room_index') }}">back to list</a>
+
+    {{ include('occupied_room/_delete_form.html.twig') }}
+{% endblock %}
