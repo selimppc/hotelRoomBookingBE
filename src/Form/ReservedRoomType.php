@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Reservation;
 use App\Entity\ReservedRoom;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,8 +16,14 @@ class ReservedRoomType extends AbstractType
         $builder
             ->add('number_of_rooms')
             ->add('status')
-            ->add('room_type')
-            ->add('reservation')
+            ->add('room_type', EntityType::class, [
+                'class' => \App\Entity\RoomType::class,
+                'choice_label' => 'description',
+            ])
+            ->add('reservation', EntityType::class, [
+                'class' => Reservation::class,
+                'choice_label' => 'id'
+            ])
         ;
     }
 

@@ -20,22 +20,22 @@ class ReservedRoom
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $number_of_rooms;
+    private ?int $number_of_rooms;
 
     /**
      * @ORM\ManyToOne(targetEntity=RoomType::class)
      */
-    private $room_type;
+    private ?RoomType $room_type;
 
     /**
      * @ORM\ManyToOne(targetEntity=Reservation::class)
      */
-    private $reservation;
+    private ?Reservation $reservation;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $status;
+    private ?bool $status;
 
     public function getId(): ?int
     {

@@ -20,12 +20,12 @@ class RoomType
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $max_capacity;
+    private ?int $max_capacity;
 
 
     public function getId(): ?int

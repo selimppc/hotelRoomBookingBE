@@ -20,22 +20,22 @@ class OccupiedRoom
     /**
      * @ORM\Column(type="datetime")
      */
-    private $check_in;
+    private ?\DateTimeInterface $check_in;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $check_out;
+    private ?\DateTimeInterface $check_out;
 
     /**
-     * @ORM\ManyToOne(targetEntity=RoomType::class)
+     * @ORM\ManyToOne(targetEntity=Room::class)
      */
-    private $room;
+    private ?Room $room;
 
     /**
      * @ORM\ManyToOne(targetEntity=Reservation::class)
      */
-    private $reservation;
+    private ?Reservation $reservation;
 
     public function getId(): ?int
     {
@@ -66,12 +66,12 @@ class OccupiedRoom
         return $this;
     }
 
-    public function getRoom(): ?RoomType
+    public function getRoom(): ?Room
     {
         return $this->room;
     }
 
-    public function setRoom(?RoomType $room): self
+    public function setRoom(?Room $room): self
     {
         $this->room = $room;
 

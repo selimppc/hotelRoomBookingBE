@@ -21,32 +21,32 @@ class Room
      * @ORM\ManyToOne(targetEntity=Hotel::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $hotel;
+    private ?Hotel $hotel;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $number;
+    private ?int $number;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $status;
+    private ?bool $status;
 
     /**
      * @ORM\ManyToOne(targetEntity=RoomType::class)
      */
-    private $room_type;
+    private ?RoomType $room_type;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $is_smoke;
+    private ?bool $is_smoke;
 
     public function getId(): ?int
     {

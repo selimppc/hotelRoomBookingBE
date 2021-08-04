@@ -20,23 +20,23 @@ class Reservation
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $date_in;
+    private ?\DateTimeInterface $date_in;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $date_out;
+    private ?\DateTimeInterface $date_out;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $made_by;
+    private ?int $made_by;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="reservations")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $client;
+    private ?User $client;
 
     public function getId(): ?int
     {

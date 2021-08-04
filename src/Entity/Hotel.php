@@ -20,17 +20,17 @@ class Hotel
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $location;
+    private ?string $location;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class)
      */
-    private $owner;
+    private ?User $owner;
 
     public function getId(): ?int
     {

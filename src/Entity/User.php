@@ -23,17 +23,17 @@ class User
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
      */
-    private $first_name;
+    private ?string $first_name;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
      */
-    private $last_name;
+    private ?string $last_name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $email;
+    private ?string $email;
 
 
     public function getId(): ?int
